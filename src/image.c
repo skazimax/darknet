@@ -4,6 +4,7 @@
 #include "cuda.h"
 #include <stdio.h>
 #include <math.h>
+#include <time.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -235,6 +236,8 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
 			//	class_id, (right + left) / 2, (bot - top) / 2, right - left, bot - top);
 
 			printf("\n");
+
+
             draw_box_width(im, left, top, right, bot, width, red, green, blue);
             if (alphabet) {
                 image label = get_label(alphabet, names[class_id], (im.h*.03)/10);
@@ -284,7 +287,7 @@ void draw_detections_cv(IplImage* show_img, int num, float thresh, box *boxes, f
 			if (right > show_img->width - 1) right = show_img->width - 1;
 			if (top < 0) top = 0;
 			if (bot > show_img->height - 1) bot = show_img->height - 1;
-
+		
 			float const font_size = show_img->height / 1000.F;
 			CvPoint pt1, pt2, pt_text, pt_text_bg1, pt_text_bg2;
 			pt1.x = left;
@@ -303,7 +306,8 @@ void draw_detections_cv(IplImage* show_img, int num, float thresh, box *boxes, f
 			color.val[2] = blue * 256;
 
 			cvRectangle(show_img, pt1, pt2, color, width, 8, 0);
-			//printf("left=%d, right=%d, top=%d, bottom=%d, obj_id=%d, obj=%s \n", left, right, top, bot, class_id, names[class_id]);
+			printf("left=%d, right=%d, top=%d, bottom=%d, obj_id=%d, obj=%s \n", left, right, top, bot, class_id, names[class_id]);
+			  	    					
 			cvRectangle(show_img, pt_text_bg1, pt_text_bg2, color, width, 8, 0);
 			cvRectangle(show_img, pt_text_bg1, pt_text_bg2, color, CV_FILLED, 8, 0);	// filled
 			CvScalar black_color;
@@ -311,6 +315,14 @@ void draw_detections_cv(IplImage* show_img, int num, float thresh, box *boxes, f
 			CvFont font;
 			cvInitFont(&font, CV_FONT_HERSHEY_SIMPLEX, font_size, font_size, 0, font_size * 3, 8);	
 			cvPutText(show_img, names[class_id], pt_text, &font, black_color);
+			
+			time_t seconds;
+	    		seconds = time(NULL);
+			
+			char buff[256];
+    			sprintf(buff, "test/%d.jpg", seconds);
+			cvSetImageROI(show_img, cvRect(left,top,right-left,bot-top));			
+			cvSaveImage(buff, show_img,0);
 		}
 	}
 }
@@ -703,7 +715,7 @@ void save_image_jpg(image p, const char *name)
     int x,y,k;
 
     char buff[256];
-    sprintf(buff, "%s.jpg", name);
+    sprintf(buff, "%d.jpg", name);
 
     IplImage *disp = cvCreateImage(cvSize(p.w,p.h), IPL_DEPTH_8U, p.c);
     int step = disp->widthStep;
