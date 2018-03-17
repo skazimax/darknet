@@ -255,7 +255,7 @@ void draw_detections_cv(IplImage* show_img, int num, float thresh, box *boxes, f
 	for (i = 0; i < num; ++i) {
 		int class_id = max_index(probs[i], classes);
 		float prob = probs[i][class_id];
-		if (prob > thresh) {
+		if (prob > .5) {
 
 			int width = show_img->height * .012;
 
