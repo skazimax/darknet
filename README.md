@@ -1,9 +1,9 @@
 1. make
 2. download:
 
-[unknown_video.mp4](https://drive.google.com/open?id=1Ldo2827CfbLMPdMIdZAwUmnQ3OIc3dHE)
+Известное место - [known_video.mp4](https://drive.google.com/open?id=1Vp6uQkrsAjsMSDCnGnt-XgHxBD9NoTni)
 
-[nown_video.mp4](https://drive.google.com/open?id=1Vp6uQkrsAjsMSDCnGnt-XgHxBD9NoTni)
+Неизвестное место - [unknown_video.mp4](https://drive.google.com/open?id=1Ldo2827CfbLMPdMIdZAwUmnQ3OIc3dHE)
 
 [yolo-obj_6000.weights](https://drive.google.com/open?id=1zIsCn8nJIl0pVnmnx_cigt32hLlit8Uw)
 

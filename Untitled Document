@@ -1,1 +1,0 @@
-./darknet detector demo data/obj.data cfg/hik-yolo-obj.cfg ../../HIK/Model/backup/yolo-obj_6000.weights ../../HIK/video2/In/20180127/nvr_IP\ Camera6_nvr_20180127095616_20180127095655_44881029.mp4
