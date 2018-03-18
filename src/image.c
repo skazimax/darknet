@@ -320,7 +320,7 @@ void draw_detections_cv(IplImage* show_img, int num, float thresh, box *boxes, f
 	    		seconds = time(NULL);
 			
 			char buff[256];
-    			sprintf(buff, "test/%s_(%.0f%%)_%d.jpg", names[class_id], prob * 100, seconds);
+    			sprintf(buff, "results/%s_(%.0f%%)_%d.jpg", names[class_id], prob * 100, seconds);
 			cvSetImageROI(show_img, cvRect(left,top,right-left,bot-top));			
 			cvSaveImage(buff, show_img,0);
 		}
