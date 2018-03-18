@@ -255,7 +255,7 @@ void draw_detections_cv(IplImage* show_img, int num, float thresh, box *boxes, f
 	for (i = 0; i < num; ++i) {
 		int class_id = max_index(probs[i], classes);
 		float prob = probs[i][class_id];
-		if (prob > .5) {
+		if (prob > .7) {
 
 			int width = show_img->height * .012;
 
@@ -320,7 +320,7 @@ void draw_detections_cv(IplImage* show_img, int num, float thresh, box *boxes, f
 	    		seconds = time(NULL);
 			
 			char buff[256];
-    			sprintf(buff, "test/%d.jpg", seconds);
+    			sprintf(buff, "test/%s_(%.0f%%)_%d.jpg", names[class_id], prob * 100, seconds);
 			cvSetImageROI(show_img, cvRect(left,top,right-left,bot-top));			
 			cvSaveImage(buff, show_img,0);
 		}
