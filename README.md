@@ -8,6 +8,8 @@
 
  - [yolo-obj_6000.weights](https://drive.google.com/open?id=1zIsCn8nJIl0pVnmnx_cigt32hLlit8Uw)
 
+ - [dataset.zip](https://drive.google.com/open?id=1ZHKksYfZaZCOrenWPub1pKM19zqTgr3y)
+
 4. Пример запуска:
 
 ./darknet detector demo data/obj.data cfg/hik-yolo-obj.cfg yolo-obj_6000.weights known_video.mp4

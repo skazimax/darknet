@@ -1,5 +1,5 @@
 classes = 4
 train  = /mnt/Data/HIK/Model/data/train.txt
 valid  = /mnt/Data/HIK/Model/data/test.txt
-names = /mnt/Data/HIK/Model/data/obj.names
+names = data/obj.names
 backup = /mnt/Data/HIK/Model/backup
